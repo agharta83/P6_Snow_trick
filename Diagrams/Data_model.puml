@@ -1,0 +1,66 @@
+@startuml
+
+'Class'
+class Users {
+    id: int(11)
+    username: varchar(50)
+    email: varchar(100)
+    password: varchar(255)
+    created_at: datetime
+    avatar: varchar(255)
+    roles: json
+    is_verified: tinyint(1)
+    is_agree: tinyint(1)
+}
+
+class Trick
+{
+    id: int(11)
+    user_id: int(11)
+    category_id: int(11)
+    name: varchar(100)
+    description: longtext
+    created_at: datetime
+    updated_at: datetime
+    slug: varchar(255)
+    main_image_id: int(11)
+}
+
+class Category {
+    id: int(11)
+    name: varchar(50)
+    slug: varchar(50)
+}
+
+class Image {
+    id: int(11)
+    trick_id: int(11)
+    name: varchar(255)
+}
+
+Class Video {
+    id: int(11)
+    trick_id: int(11)
+    url: varchar(255)
+}
+
+Class Comment {
+    id: int(11)
+    trick_id: (11)
+    user_id: (11)
+    respond_to: (11)
+    created_at: datetime
+    content: longtext
+}
+
+'Relation'
+Users "1" --> "0..*" Trick
+Trick "1" *-- "1" Category
+Trick "1" *-- "1..*" Image
+Trick "1" *-- "1..*" Video
+Trick "1" *-- "0..*" Comment
+Users "1" *-- "0..*" Comment
+Comment "0..1" *-- "0..*" Comment
+
+
+@enduml
