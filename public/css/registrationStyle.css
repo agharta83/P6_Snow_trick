@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Dosis', sans-serif;
+    background: url("../images/bg1.jpg");
+    background-size: cover;
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 40px;
+    background: rgba(0,0,0,.8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.login-box .inputBox {
+    position: relative;
+}
+
+.login-box .inputBox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .inputBox input:focus ~ label, .login-box .inputBox input:valid ~ label {
+    top: -18px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+}
+
+.login-box .check {
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.login-box input[type="submit"] {
+    font-family: 'Dosis', sans-serif;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    background: #03a9f4;
+    display: flex;
+    padding: 10px 20px;
+    margin: 30px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.login-box input[type="submit"]:hover {
+    background: #FFFAFA;
+    color: #03a9f4;
+}
+
+.login-box a {
+    color: #03a9f4;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.login-box a:hover {
+    color: #FFFAFA;
+}
+
+.login-box .inputBox small {
+    color: #FFFAFA;
+}
+
+.login-box .inputBox p {
+    text-align: center;
+}
+
+.login-box p {
+    text-align: center;
+    color: #FFFAFA;
+    letter-spacing: 1px;
+}

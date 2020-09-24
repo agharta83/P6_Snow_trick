@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/registrationStyle.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="login-box">
+        {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+
+        <h2>Inscription</h2>
+
+        {{ form_start(registrationForm) }}
+        <div class="inputBox">
+            {{ form_widget(registrationForm.username) }}
+            {{ form_label(registrationForm.username) }}
+        </div>
+        <div class="inputBox">
+            {{ form_widget(registrationForm.email) }}
+            {{ form_label(registrationForm.email) }}
+        </div>
+        <div class="inputBox">
+            {{ form_widget(registrationForm.plainPassword) }}
+            {{ form_label(registrationForm.plainPassword) }}
+        </div>
+        <span class="check">
+            {{ form_widget(registrationForm.agreeTerms) }}
+            {{ form_label(registrationForm.agreeTerms) }}
+        </span>
+
+        <input type="submit" value="Créer un compte"></input>
+        {{ form_end(registrationForm) }}
+        <p><a href="{{ path('app_login') }}">Déjà un compte ?</a></p>
+    </div>
+
+{% endblock %}
