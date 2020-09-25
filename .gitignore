@@ -9,6 +9,8 @@
 /var/
 /vendor/
 /app/
+/public/plugins/
+/public/videos/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

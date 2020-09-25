@@ -53,8 +53,8 @@ Class Comment {
 }
 
 'Relation'
-User "1" --> "0..*" Tricks
-Tricks "1" *-- "1" Category
+User "1..1" --> "*..1" Tricks
+Tricks "1..*" *-- "1..1" Category
 Tricks "1" *-- "1..*" Image
 Tricks "1" *-- "1..*" Video
 Tricks "1" *-- "0..*" Comment
