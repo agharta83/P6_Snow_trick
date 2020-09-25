@@ -1,0 +1,15 @@
+header {
+    position: relative;
+    z-index: 5;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: flex-end;
+}
+
+.nav-link {
+    transition: 0.2s;
+}
+.nav-link:focus, .nav-link:hover {
+    font-weight: bold;
+}

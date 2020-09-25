@@ -1,7 +1,7 @@
 50@startuml
 
 'Class'
-class Users {
+class User {
     id: int(11)
     username: varchar(50)
     email: varchar(100)
@@ -12,7 +12,7 @@ class Users {
     is_verified: tinyint(1)
 }
 
-class Trick
+class Tricks
 {
     id: int(11)
     user_id: int(11)
@@ -53,12 +53,12 @@ Class Comment {
 }
 
 'Relation'
-Users "1" --> "0..*" Trick
-Trick "1" *-- "1" Category
-Trick "1" *-- "1..*" Image
-Trick "1" *-- "1..*" Video
-Trick "1" *-- "0..*" Comment
-Users "1" *-- "0..*" Comment
+User "1" --> "0..*" Tricks
+Tricks "1" *-- "1" Category
+Tricks "1" *-- "1..*" Image
+Tricks "1" *-- "1..*" Video
+Tricks "1" *-- "0..*" Comment
+User "1" *-- "0..*" Comment
 Comment "0..1" *-- "0..*" Comment
 
 

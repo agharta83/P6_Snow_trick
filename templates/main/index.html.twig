@@ -1,24 +1,175 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}SnowTricks{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    {# HEADER #}
+    <div class="banner">
+        <video autoplay muted loop>
+            <source src="{{ asset('videos/video_bg.mp4') }}" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1 class="display-font uppercase">Snowtricks</h1>
+            <h2 class="text-light">Partagez votre passion du snowboard avec la communautés !</h2>
+        </div>
+    </div>
+    {# /HEADER #}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {# TRICKS LIST #}
+    <section>
+        <div class="section-inner">
+            <div class="container">
+                <div class="row">
 
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-success" role="alert">{{ message }}</div>
-    {% endfor %}
+                    <div class="col-sm-4 blog-item mb100 wow match-height">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="hover-item mb30">
+                                    <img src="" class="img-responsive smoothie" alt="title">
+                                    <div class="overlay-item-caption smoothie"></div>
+                                    <div class="hover-item-caption smoothie">
+                                        <h3 class="vertical-center smoothie"><a href="" class="smoothie btn btn-primary page-scroll" title="view article">View</a></h3>
+                                    </div>
+                                </div>
+                                <h2 class="post-title">The Ultimate Experience</h2>
+                                <div class="item-metas text-muted mb30">
+                                    <span class="meta-item"><i class="pe-icon pe-7s-folder"></i> POSTED IN <span>News</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-ticket"></i> TAGS <span>Photography</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-user"></i> AUTHOR <span>Danny Jones</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-comment"></i> COMMENTS <span>3</span></span>
+                                </div>
+                                <p>Behind sooner dining so window excuse he summer. Breakfast met certainty and fulfilled propriety led. Waited get either are wooded little her. Contrasted unreserved as mr particular collecting it everything as indulgence. Seems ask meant merry could put. Age old begin had boy noisy table front whole given.</p>
+                                <a class="btn btn-primary mt30" href="">Read More</a>
+                            </div>
+                        </div>
+                    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/wamp64/www/opc/p6_snowtrick/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/wamp64/www/opc/p6_snowtrick/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
-</div>
+                    <div class="col-sm-4 blog-item mb100 wow match-height">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="hover-item mb30">
+                                    <img src="" class="img-responsive smoothie" alt="title">
+                                    <div class="overlay-item-caption smoothie"></div>
+                                    <div class="hover-item-caption smoothie">
+                                        <h3 class="vertical-center smoothie"><a href="" class="smoothie btn btn-primary page-scroll" title="view article">View</a></h3>
+                                    </div>
+                                </div>
+                                <h2 class="post-title">The Ultimate Experience</h2>
+                                <div class="item-metas text-muted mb30">
+                                    <span class="meta-item"><i class="pe-icon pe-7s-folder"></i> POSTED IN <span>News</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-ticket"></i> TAGS <span>Photography</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-user"></i> AUTHOR <span>Danny Jones</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-comment"></i> COMMENTS <span>3</span></span>
+                                </div>
+                                <p>Behind sooner dining so window excuse he summer. Breakfast met certainty and fulfilled propriety led. Waited get either are wooded little her. Contrasted unreserved as mr particular collecting it everything as indulgence. Seems ask meant merry could put. Age old begin had boy noisy table front whole given.</p>
+                                <a class="btn btn-primary mt30" href="">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 blog-item mb100 wow match-height">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="hover-item mb30">
+                                    <img src="" class="img-responsive smoothie" alt="title">
+                                    <div class="overlay-item-caption smoothie"></div>
+                                    <div class="hover-item-caption smoothie">
+                                        <h3 class="vertical-center smoothie"><a href="" class="smoothie btn btn-primary page-scroll" title="view article">View</a></h3>
+                                    </div>
+                                </div>
+                                <h2 class="post-title">The Ultimate Experience</h2>
+                                <div class="item-metas text-muted mb30">
+                                    <span class="meta-item"><i class="pe-icon pe-7s-folder"></i> POSTED IN <span>News</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-ticket"></i> TAGS <span>Photography</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-user"></i> AUTHOR <span>Danny Jones</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-comment"></i> COMMENTS <span>3</span></span>
+                                </div>
+                                <p>Behind sooner dining so window excuse he summer. Breakfast met certainty and fulfilled propriety led. Waited get either are wooded little her. Contrasted unreserved as mr particular collecting it everything as indulgence. Seems ask meant merry could put. Age old begin had boy noisy table front whole given.</p>
+                                <a class="btn btn-primary mt30" href="">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 blog-item mb100 wow match-height">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="hover-item mb30">
+                                    <img src="" class="img-responsive smoothie" alt="title">
+                                    <div class="overlay-item-caption smoothie"></div>
+                                    <div class="hover-item-caption smoothie">
+                                        <h3 class="vertical-center smoothie"><a href="" class="smoothie btn btn-primary page-scroll" title="view article">View</a></h3>
+                                    </div>
+                                </div>
+                                <h2 class="post-title">The Ultimate Experience</h2>
+                                <div class="item-metas text-muted mb30">
+                                    <span class="meta-item"><i class="pe-icon pe-7s-folder"></i> POSTED IN <span>News</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-ticket"></i> TAGS <span>Photography</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-user"></i> AUTHOR <span>Danny Jones</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-comment"></i> COMMENTS <span>3</span></span>
+                                </div>
+                                <p>Behind sooner dining so window excuse he summer. Breakfast met certainty and fulfilled propriety led. Waited get either are wooded little her. Contrasted unreserved as mr particular collecting it everything as indulgence. Seems ask meant merry could put. Age old begin had boy noisy table front whole given.</p>
+                                <a class="btn btn-primary mt30" href="">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 blog-item mb100 wow match-height">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="hover-item mb30">
+                                    <img src="" class="img-responsive smoothie" alt="title">
+                                    <div class="overlay-item-caption smoothie"></div>
+                                    <div class="hover-item-caption smoothie">
+                                        <h3 class="vertical-center smoothie"><a href="" class="smoothie btn btn-primary page-scroll" title="view article">View</a></h3>
+                                    </div>
+                                </div>
+                                <h2 class="post-title">The Ultimate Experience</h2>
+                                <div class="item-metas text-muted mb30">
+                                    <span class="meta-item"><i class="pe-icon pe-7s-folder"></i> POSTED IN <span>News</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-ticket"></i> TAGS <span>Photography</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-user"></i> AUTHOR <span>Danny Jones</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-comment"></i> COMMENTS <span>3</span></span>
+                                </div>
+                                <p>Behind sooner dining so window excuse he summer. Breakfast met certainty and fulfilled propriety led. Waited get either are wooded little her. Contrasted unreserved as mr particular collecting it everything as indulgence. Seems ask meant merry could put. Age old begin had boy noisy table front whole given.</p>
+                                <a class="btn btn-primary mt30" href="">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 blog-item mb100 wow match-height">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="hover-item mb30">
+                                    <img src="" class="img-responsive smoothie" alt="title">
+                                    <div class="overlay-item-caption smoothie"></div>
+                                    <div class="hover-item-caption smoothie">
+                                        <h3 class="vertical-center smoothie"><a href="" class="smoothie btn btn-primary page-scroll" title="view article">View</a></h3>
+                                    </div>
+                                </div>
+                                <h2 class="post-title">The Ultimate Experience</h2>
+                                <div class="item-metas text-muted mb30">
+                                    <span class="meta-item"><i class="pe-icon pe-7s-folder"></i> POSTED IN <span>News</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-ticket"></i> TAGS <span>Photography</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-user"></i> AUTHOR <span>Danny Jones</span></span>
+                                    <span class="meta-item"><i class="pe-icon pe-7s-comment"></i> COMMENTS <span>3</span></span>
+                                </div>
+                                <p>Behind sooner dining so window excuse he summer. Breakfast met certainty and fulfilled propriety led. Waited get either are wooded little her. Contrasted unreserved as mr particular collecting it everything as indulgence. Seems ask meant merry could put. Age old begin had boy noisy table front whole given.</p>
+                                <a class="btn btn-primary mt30" href="">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row paging text-center">
+                    <a class="btn btn-primary mt30 mx-auto" href="#">Older Posts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    {# /TRICKS LIST #}
+
 {% endblock %}
