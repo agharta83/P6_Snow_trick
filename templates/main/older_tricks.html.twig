@@ -1,0 +1,29 @@
+{% for trick in tricks %}
+    <div class="col-sm-4 blog-item mb100 wow match-height">
+        <div class="row mx-2">
+            <div class="col-xs-12">
+                <div class="hover-item mb30">
+                    <img src="{{ asset('uploads/tricks/'~ trick.main_image.name) }}" class="img-responsive smoothie" alt="title">
+                    <div class="overlay-item-caption smoothie"></div>
+                    <div class="hover-item-caption smoothie vertical-center">
+                        <h3 class="smoothie"><a href="" class="smoothie btn btn-primary page-scroll" title="view article">Voir</a></h3>
+                    </div>
+                </div>
+                <h2 class="post-title">{{ trick.name }}</h2>
+                <div class="item-metas text-muted mb30">
+                    <div class="text-center">
+                        <span class="meta-item"><i class="fa fa-calendar" aria-hidden="true"></i> CREE LE <span>{{ trick.created_at | date('d-m-Y') }}</span></span>
+                        <span class="meta-item"><i class="fa fa-tag" aria-hidden="true"></i> CATEGORIE <span>{{ trick.category.name }}</span></span>
+                    </div>
+                    <div class="text-center">
+                        <span class="meta-item"><i class="fa fa-user" aria-hidden="true"></i> AUTEUR <span>{{ trick.user.username }}</span></span>
+                        <span class="meta-item"><i class="fa fa-comment" aria-hidden="true"></i> COMMENTS <span>3</span></span>
+                    </div>
+
+                </div>
+                <p>{{ trick.description }}</p>
+                <a class="btn btn-primary mt30" href="">Lire</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}

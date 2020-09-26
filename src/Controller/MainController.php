@@ -13,8 +13,22 @@ class MainController extends AbstractController
      */
     public function index(TricksRepository $tricksRepository)
     {
+        $tricks = $tricksRepository->findBy([], ['created_at' => 'DESC'], 6, 0);
+
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'tricks' => $tricks,
+        ]);
+    }
+
+    /**
+     * @Route("/{offset}", name="older_tricks")
+     */
+    public function moreTricks(TricksRepository $tricksRepository, $offset)
+    {
+        $tricks = $tricksRepository->findBy([], ['created_at' => 'DESC'], 6, $offset);
+
+        return $this->render('main/older_tricks.html.twig', [
+            'tricks' => $tricks,
         ]);
     }
 }

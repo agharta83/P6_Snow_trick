@@ -8,7 +8,6 @@ use App\Entity\Tricks;
 use App\Entity\Users;
 use App\Tools\FormatedText;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\ORM\Mapping\Entity;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -79,26 +78,29 @@ class AppFixtures extends Fixture
         $tricksName = ['Tail grab', 'Indy', '360', '180', 'Front flip', 'Rodeo'];
 
         foreach ($tricksName as $trickName) {
-            $trick = new Tricks();
-            $trick->setName($trickName);
-            $trick->setDescription($faker->paragraph(8, true));
-            $trick->setCreatedAt($faker->dateTimeBetween('-6 months'));
-            $trick->setSlug(FormatedText::slugify($trickName));
-            $trick->setUser($faker->randomElement($users));
-            $trick->setCategory(($faker->randomElement($categories)));
+            for ($k = 0; $k < 3; $k++) {
+                $trick = new Tricks();
+                $trick->setName($trickName);
+                $trick->setDescription($faker->paragraph(8, true));
+                $trick->setCreated_at($faker->dateTimeBetween('-6 months'));
+                $trick->setSlug(FormatedText::slugify($trickName));
+                $trick->setUser($faker->randomElement($users));
+                $trick->setCategory(($faker->randomElement($categories)));
 
-            for ($i = 1; $i < 4; $i++) {
-                $image = new Images();
-                $image->setName($trick->getName() . $i . '.jpg');
-                $image->setTricks($trick);
+                for ($i = 1; $i < 4; $i++) {
+                    $image = new Images();
+                    $image->setName($trick->getName() . $i . '.jpg');
+                    $image->setTricks($trick);
 
-                $manager->persist($image);
+                    $manager->persist($image);
 
-                if ($i === 3) {
-                    $trick->setMainImage($image);
-                    $manager->persist($trick);
+                    if ($i === 3) {
+                        $trick->setMain_image($image);
+                        $manager->persist($trick);
+                    }
                 }
             }
+
         }
     }
 }

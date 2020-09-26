@@ -11,6 +11,7 @@
 /app/
 /public/plugins/
 /public/videos/
+todo.md
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

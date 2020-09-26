@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\TricksRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +12,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=TricksRepository::class)
- * @ORM\HasLifecycleCallbacks()
  * @UniqueEntity(fields={"name"}, message="Ce nom est déjà utilisé")
  * @UniqueEntity(fields={"slug"}, message="Le slug est déjà utilisé")
  */
@@ -69,7 +69,7 @@ class Tricks
 
     /**
      * @ORM\OneToOne(targetEntity=Images::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      * @Assert\Valid()
      */
     private $main_image;
@@ -108,24 +108,24 @@ class Tricks
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreated_at(): ?DateTimeInterface
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setCreated_at(DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updated_at;
     }
 
-    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    public function setUpdatedAt(?DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
 
@@ -199,12 +199,12 @@ class Tricks
         return $this;
     }
 
-    public function getMainImage(): ?Images
+    public function getMain_image(): ?Images
     {
         return $this->main_image;
     }
 
-    public function setMainImage(Images $main_image): self
+    public function setMain_image(Images $main_image): self
     {
         $this->main_image = $main_image;
 
