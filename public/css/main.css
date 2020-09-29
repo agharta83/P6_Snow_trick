@@ -652,6 +652,31 @@ fieldset[disabled] .btn-primary.active {
 .overlay-item-caption a {
     color: #222;
 }
+
+.icons-img {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 10;
+}
+
+.icons-img a {
+    font-size: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.icons-img a:hover {
+    cursor: pointer;
+    background: #222;
+    color: #fefefe;
+    border-radius: 50%;
+    z-index: 10;
+}
+
 /* /HOVER CAPTION */
 
 /* FOOTER */

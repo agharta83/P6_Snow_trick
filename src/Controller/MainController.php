@@ -21,9 +21,9 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/{offset}", name="older_tricks")
+     * @Route("/{offset}", name="older_tricks", requirements={"offset": "\d+"})
      */
-    public function moreTricks(TricksRepository $tricksRepository, $offset)
+    public function olderTricks(TricksRepository $tricksRepository, $offset)
     {
         $tricks = $tricksRepository->findBy([], ['created_at' => 'DESC'], 6, $offset);
 

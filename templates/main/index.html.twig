@@ -33,6 +33,12 @@
                                     <div class="overlay-item-caption smoothie"></div>
                                     <div class="hover-item-caption smoothie vertical-center">
                                         <h3 class="smoothie"><a href="" class="smoothie btn btn-primary page-scroll" title="view article">Voir</a></h3>
+                                        {% if app.user %}
+                                            <div class="icons-img">
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <h2 class="post-title">{{ trick.name }}</h2>
@@ -57,7 +63,7 @@
                 </div>
 
                 <div class="row paging text-center">
-                    <a class="btn btn-primary mt30 mx-auto" id="moreTricks">Older Tricks</a>
+                    <a class="btn btn-primary mt30 mx-auto" id="olderTricks">Older Tricks</a>
                 </div>
             </div>
         </div>

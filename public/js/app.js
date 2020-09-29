@@ -5,11 +5,11 @@ var app = {
     // Méthode de mon objet app
     init: () => {
         app.basePath = $('body').data('path');
-        $('#moreTricks').on('click', app.loadMoreTricks);
+        $('#olderTricks').on('click', app.loadOlderTricks);
     },
 
     // On définit les méthodes
-    loadMoreTricks: () => {
+    loadOlderTricks: () => {
         app.nbClick++;
         let newOffset = 6 * app.nbClick;
         const url = app.basePath + '/' + newOffset;
