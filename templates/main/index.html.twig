@@ -1,24 +1,73 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}SnowTricks{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    {# HEADER #}
+    <div class="banner">
+        <video autoplay muted loop>
+            <source src="{{ asset('videos/video_bg.mp4') }}" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1 class="display-font uppercase">Snowtricks</h1>
+            <h2 class="text-light">Partagez votre passion du snowboard avec la communautés !</h2>
+        </div>
+    </div>
+    {# /HEADER #}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {# TRICKS LIST #}
+    <section id="tricks">
+        <div class="section-inner">
+            <div class="container">
+                <div class="row" id="tricks-list">
 
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-success" role="alert">{{ message }}</div>
-    {% endfor %}
+                    {% for trick in tricks %}
+                        <div class="col-sm-4 blog-item mb100 wow match-height">
+                        <div class="row mx-2">
+                            <div class="col-xs-12">
+                                <div class="hover-item mb30">
+                                    <img src="{{ asset('uploads/tricks/'~ trick.main_image.name) }}" class="img-responsive smoothie" alt="title">
+                                    <div class="overlay-item-caption smoothie"></div>
+                                    <div class="hover-item-caption smoothie vertical-center">
+                                        <h3 class="smoothie"><a href="" class="smoothie btn btn-primary page-scroll" title="view article">Voir</a></h3>
+                                        {% if app.user %}
+                                            <div class="icons-img">
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <h2 class="post-title">{{ trick.name }}</h2>
+                                <div class="item-metas text-muted mb30">
+                                    <div class="text-center">
+                                        <span class="meta-item"><i class="fa fa-calendar" aria-hidden="true"></i> CREE LE <span>{{ trick.created_at | date('d-m-Y') }}</span></span>
+                                        <span class="meta-item"><i class="fa fa-tag" aria-hidden="true"></i> CATEGORIE <span>{{ trick.category.name }}</span></span>
+                                    </div>
+                                    <div class="text-center">
+                                        <span class="meta-item"><i class="fa fa-user" aria-hidden="true"></i> AUTEUR <span>{{ trick.user.username }}</span></span>
+                                        <span class="meta-item"><i class="fa fa-comment" aria-hidden="true"></i> COMMENTS <span>3</span></span>
+                                    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/wamp64/www/opc/p6_snowtrick/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/wamp64/www/opc/p6_snowtrick/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
-</div>
+                                </div>
+                                <p>{{ trick.description }}</p>
+                                <a class="btn btn-primary mt30" href="">Lire</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <div class="row paging text-center">
+                    <a class="btn btn-primary mt30 mx-auto" id="olderTricks">Older Tricks</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    {# /TRICKS LIST #}
+
 {% endblock %}
