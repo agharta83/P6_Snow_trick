@@ -55,7 +55,7 @@ class RegistrationController extends AbstractController
             $this->serviceMailer->sendEmailConfirmation(
                 $user,
                 (new TemplatedEmail())
-                    ->from(new Address('no-reply@snowtrick.audrey-cesar.com', 'snowtrick'))
+                    ->from(new Address('no-reply@snowtrick.audrey-cesar.com', 'SnowTricks'))
                     ->to($user->getEmail())
                     ->subject('Confirmer votre adresse mail')
                     ->htmlTemplate('registration/confirmation_email.html.twig')

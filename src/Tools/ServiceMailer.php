@@ -2,7 +2,6 @@
 
 namespace App\Tools;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -13,12 +12,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class ServiceMailer
 {
     private $mailer;
-    private $entityManager;
 
-    public function __construct(MailerInterface $mailer, EntityManagerInterface $manager)
+    public function __construct(MailerInterface $mailer)
     {
         $this->mailer = $mailer;
-        $this->entityManager = $manager;
     }
 
     /**
@@ -37,10 +34,14 @@ class ServiceMailer
         $this->mailer->send($email);
     }
 
-    /**
-     * @param string $uriToken
-     * @param UserInterface $user
-     * @return bool
-     */
+    public function sendEmailResetPasswordRequest(UserInterface $user, TemplatedEmail $email): void
+    {
+        $context = $email->getContext();
+        $context['idUser'] = $user->getId();
+        $context['token'] = $user->getToken();
 
+        $email->context($context);
+
+        $this->mailer->send($email);
+    }
 }

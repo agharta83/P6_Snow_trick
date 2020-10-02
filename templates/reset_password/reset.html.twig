@@ -9,13 +9,21 @@
     <div class="login-box">
         <h2>Réinitialiser votre mot de passe</h2>
 
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger" role="alert">{{ message }}</div>
+        {% endfor %}
+
         {{ form_start(resetForm) }}
         <div class="inputBox">
             {{ form_widget(resetForm.plainPassword) }}
             {{ form_label(resetForm.plainPassword) }}
         </div>
+        <div class="inputBox">
+            {{ form_widget(resetForm.password) }}
+            {{ form_label(resetForm.password) }}
+        </div>
 
-        <input type="submit">Réinitialiser</input>
+        <input type="submit" value="Réinitialiser" />
         {{ form_end(resetForm) }}
     </div>
 {% endblock %}
