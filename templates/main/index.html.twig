@@ -12,6 +12,9 @@
             <source src="{{ asset('videos/video_bg.mp4') }}" type="video/mp4">
         </video>
         <div class="content">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endfor %}
             <h1 class="display-font uppercase">Snowtricks</h1>
             <h2 class="text-light">Partagez votre passion du snowboard avec la communautés !</h2>
         </div>

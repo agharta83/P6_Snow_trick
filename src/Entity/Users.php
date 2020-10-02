@@ -57,12 +57,17 @@ class Users implements UserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isVerified = false;
+    private $is_verified = false;
 
     /**
      * @ORM\OneToMany(targetEntity=Tricks::class, mappedBy="user", orphanRemoval=true)
      */
     private $tricks;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $token;
 
     public function __construct()
     {
@@ -180,12 +185,12 @@ class Users implements UserInterface
 
     public function isVerified(): bool
     {
-        return $this->isVerified;
+        return $this->is_verified;
     }
 
     public function setIsVerified(bool $isVerified): self
     {
-        $this->isVerified = $isVerified;
+        $this->is_verified = $isVerified;
 
         return $this;
     }
@@ -221,4 +226,15 @@ class Users implements UserInterface
         return $this;
     }
 
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(?string $token): self
+    {
+        $this->token = $token;
+
+        return $this;
+    }
 }
