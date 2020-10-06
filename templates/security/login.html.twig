@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
     <div class="login-box">
         <form method="post">
             {% if error %}

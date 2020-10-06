@@ -2,8 +2,7 @@
 
 <p>
     Confirmer votre adresse mail en cliquant sur le lien suivant <br><br>
-    <a href="{{ signedUrl|raw }}">Confirmer mon adresse mail</a>.
-    Ce lien expire dans {{ expiresAt|date('g') }} heure(s).
+    <a href="{{ url('app_verify_email', {idUser: idUser, token: token}) }}">Confirmer mon adresse mail</a>
 </p>
 
 <p>
